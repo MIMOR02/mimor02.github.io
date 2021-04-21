@@ -1,0 +1,1 @@
+# mimor02.github.io
