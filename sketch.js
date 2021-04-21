@@ -89,26 +89,26 @@ function render(grid,cols,rows,applyRule){
 				//rect(x,y,resolution-1,resolution-1);
 				rect(x,y,resolution-1,resolution-1);
 			}
-            else if(cell.getState()==3){
-                fill(100,100,100);
-                stroke(0);
-                rect(x,y,resolution-1,resolution-1);
-            }
+            		else if(cell.getState()==3){
+                		fill(100,100,100);
+               	 		stroke(0);
+                		rect(x,y,resolution-1,resolution-1);
+           	 	}
 
 		}
 	}
     if(applyRule){
-		  for(let i = 0;i<cols;i++){
-			  for(let j=0;j<rows;j++){
-	              if(countNeighbor(i,j)>=3){
-	                  next[i][j].setState(grid[i][j].getState());
-	                  let nextCell = mostNeighbors(i,j);
-					  next[i][j].setState(nextCell);
-				  }
-			  }
-		  }
-
-	    for(let i = 0; i<cols; i++){
+	for(let i = 0;i<cols;i++){
+		for(let j=0;j<rows;j++){
+	        	if(countNeighbor(i,j)>=3){
+	                	next[i][j].setState(grid[i][j].getState());
+	                  	let nextCell = mostNeighbors(i,j);
+				next[i][j].setState(nextCell);
+			}
+		}
+	}
+	
+	 for(let i = 0; i<cols; i++){
 	        for(let j=0;j<rows;j++){
 	            grid[i][j].setState(next[i][j].getState());
 	        }
